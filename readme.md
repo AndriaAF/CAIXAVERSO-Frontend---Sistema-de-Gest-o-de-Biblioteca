@@ -1,0 +1,66 @@
+Biblioteca
+
+Objetivo:
+Criar um sistema para gerenciar uma biblioteca escolar. Permite cadastrar autores, livros e usuários, fazer empréstimos e devoluções, e ver as listas de cada um.
+
+Como rodar:
+Colocar os arquivos index.html, style.css e script.js na mesma pasta. Abrir o index.html no navegador.
+
+Agora na página é possível: Cadastrar autores, livros e usuários. Fazer empréstimos e devoluções de livros. Ver as listas de autores, livros e usuários.
+
+Estrutura das Classes: 
+Autor - Armazena: nome, nacionalidade e ano de nascimento.
+
+Livro - Armazena: título, autor, ano, gênero e se está disponível.
+
+Usuário - Armazena: nome, matrícula e livros emprestados.
+
+Biblioteca - Para cadastrar, excluir, emprestar e devolver livros. Guardar as listas de autores, livros e usuários. 
+
+             ┌──────────┐
+             │  Autor   │
+             ├──────────┤
+             │ nome     │
+             │ nacionalidade │
+             │ anoNascimento │
+             └──────────┘
+
+             ┌──────────┐
+             │  Livro   │
+             ├──────────┤
+             │ titulo   │
+             │ autor    │
+             │ ano      │
+             │ genero   │
+             │ disponivel │
+             └──────────┘
+
+             ┌──────────┐
+             │ Usuario  │
+             ├──────────┤
+             │ nome     │
+             │ matricula│
+             │ livrosEmprestados │
+             └──────────┘
+
+             ┌────────────┐
+             │ Biblioteca │
+             ├────────────┤
+             │ autores[]  │
+             │ livros[]   │
+             │ usuarios[] │
+             ├────────────┤
+             │ cadastrarAutor() │
+             │ cadastrarLivro() │
+             │ cadastrarUsuario() │
+             │ emprestarLivro() │
+             │ devolverLivro() │
+             │ excluirAutor() │
+             │ excluirLivro() │
+             │ excluirUsuario() │
+             └────────────┘
+
+Relacionamentos:
+Autor 1 ────> * Livro
+Usuario 1 ────> * Livro (via livrosEmprestados)
+Biblioteca ────> * Autor, * Livro, * Usuario

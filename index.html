@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Biblioteca Básica</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Biblioteca</h1>
+
+<!-- Cadastro -->
+<div class="container linha-top">
+  <div class="quadro">
+    <h2>Cadastrar Autor</h2>
+    <input id="nomeAutor" placeholder="Nome">
+    <input id="nacionalidade" placeholder="Nacionalidade">
+    <input id="anoNascimento" placeholder="Ano Nascimento">
+    <button onclick="biblioteca.cadastrarAutor()">Adicionar Autor</button>
+  </div>
+
+  <div class="quadro">
+    <h2>Cadastrar Livro</h2>
+    <input id="tituloLivro" placeholder="Título">
+    <select id="autorLivro"><option value="">Selecione Autor</option></select>
+    <input id="anoLivro" placeholder="Ano">
+    <input id="generoLivro" placeholder="Gênero">
+    <button onclick="biblioteca.cadastrarLivro()">Adicionar Livro</button>
+  </div>
+
+  <div class="quadro">
+    <h2>Cadastrar Usuário</h2>
+    <input id="nomeUsuario" placeholder="Nome">
+    <input id="matriculaUsuario" placeholder="Matrícula">
+    <button onclick="biblioteca.cadastrarUsuario()">Adicionar Usuário</button>
+  </div>
+</div>
+
+<!-- Emprestimo -->
+<div class="container linha-meio">
+  <div class="quadro">
+    <h2>Empréstimo de Livro</h2>
+    <select id="usuarioEmprestimo"><option value="">Selecione Usuário</option></select>
+    <select id="livroEmprestimo"><option value="">Selecione Livro</option></select>
+    <button onclick="biblioteca.emprestarLivro()">Emprestar</button>
+  </div>
+
+  <div class="quadro">
+    <h2>Devolução de Livro</h2>
+    <select id="usuarioDevolucao"><option value="">Selecione Usuário</option></select>
+    <select id="livroDevolucao"><option value="">Selecione Livro</option></select>
+    <button onclick="biblioteca.devolverLivro()">Devolver</button>
+  </div>
+</div>
+
+<!-- Listas -->
+<div class="container linha-bottom">
+  <div class="quadro">
+    <h2>Lista de Autores</h2>
+    <div id="listaAutores"></div>
+  </div>
+
+  <div class="quadro">
+    <h2>Lista de Livros</h2>
+    <div id="listaLivros"></div>
+  </div>
+
+  <div class="quadro">
+    <h2>Lista de Usuários</h2>
+    <div id="listaUsuarios"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
