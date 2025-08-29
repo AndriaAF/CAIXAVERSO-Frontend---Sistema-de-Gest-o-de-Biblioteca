@@ -23,8 +23,11 @@ cadastrarAutor(){
     const ano=document.getElementById("anoNascimento").value;
     if(!nome||!nac||!ano){alert("Preencha todos os campos");return;}
     this.autores.push(new Autor(nome,nac,ano));
-    this.atualizarSelectAutores(); this.mostrarAutores();
-    document.getElementById("nomeAutor").value=""; document.getElementById("nacionalidade").value=""; document.getElementById("anoNascimento").value="";
+    this.atualizarSelectAutores(); 
+    this.mostrarAutores();
+    document.getElementById("nomeAutor").value=""; 
+    document.getElementById("nacionalidade").value=""; 
+    document.getElementById("anoNascimento").value="";
 }
 
 cadastrarLivro(){
@@ -113,4 +116,5 @@ devolverLivro(){
             this.usuarios[userIndex].livrosEmprestados.forEach(t=>sel.innerHTML+=`<option value="${t}">${t}</option>`);
         }
 }
+
 const biblioteca = new Biblioteca();
