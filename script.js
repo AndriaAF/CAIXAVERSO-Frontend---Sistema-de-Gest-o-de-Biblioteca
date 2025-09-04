@@ -1,27 +1,43 @@
 class Autor { 
     constructor(nome,nacionalidade,anoNascimento){ 
-        this.nome=nome; this.nacionalidade=nacionalidade; this.anoNascimento=anoNascimento; 
+        this.nome=nome; 
+        this.nacionalidade=nacionalidade; 
+        this.anoNascimento=anoNascimento; 
     } 
 }
+
 class Livro { 
     constructor(titulo,autor,ano,genero){ 
-        this.titulo=titulo; this.autor=autor; this.ano=ano; this.genero=genero; this.disponivel=true; 
+        this.titulo=titulo; 
+        this.autor=autor; 
+        this.ano=ano; 
+        this.genero=genero; 
+        this.disponivel=true; 
     } 
 }
 class Usuario { 
     constructor(nome,matricula){ 
-        this.nome=nome; this.matricula=matricula; this.livrosEmprestados=[]; 
+        this.nome=nome; 
+        this.matricula=matricula; 
+        this.livrosEmprestados=[]; 
     } 
 }
 
 class Biblioteca {
-constructor(){ this.autores=[]; this.livros=[]; this.usuarios=[]; }
+constructor(){ 
+    this.autores=[]; 
+    this.livros=[]; 
+    this.usuarios=[]; 
+}
 
 cadastrarAutor(){
     const nome=document.getElementById("nomeAutor").value;
     const nac=document.getElementById("nacionalidade").value;
     const ano=document.getElementById("anoNascimento").value;
-    if(!nome||!nac||!ano){alert("Preencha todos os campos");return;}
+        if(!nome||!nac||!ano){
+            alert("Preencha todos os campos");
+            return;
+    }
     this.autores.push(new Autor(nome,nac,ano));
     this.atualizarSelectAutores(); 
     this.mostrarAutores();
@@ -35,10 +51,14 @@ cadastrarLivro(){
     const autorIndex=document.getElementById("autorLivro").value;
     const ano=document.getElementById("anoLivro").value;
     const genero=document.getElementById("generoLivro").value;
-    if(!titulo||autorIndex==""||!ano||!genero){alert("Preencha todos os campos");return;}
+        if(!titulo||autorIndex==""||!ano||!genero){
+            alert("Preencha todos os campos");
+            return;
+    }
     const autor=this.autores[autorIndex].nome;
     this.livros.push(new Livro(titulo,autor,ano,genero));
-    this.mostrarLivros(); this.atualizarSelectLivros();
+    this.mostrarLivros(); 
+    this.atualizarSelectLivros();
     document.getElementById("tituloLivro").value=""; 
     document.getElementById("anoLivro").value=""; 
     document.getElementById("generoLivro").value="";
@@ -47,33 +67,48 @@ cadastrarLivro(){
 cadastrarUsuario(){
     const nome=document.getElementById("nomeUsuario").value;
     const matricula=document.getElementById("matriculaUsuario").value;
-    if(!nome||!matricula){alert("Preencha todos os campos");return;}
+        if(!nome||!matricula){
+            alert("Preencha todos os campos");
+            return;
+    }
     this.usuarios.push(new Usuario(nome,matricula));
-    this.mostrarUsuarios(); this.atualizarSelectUsuarios(); this.atualizarSelectUsuariosDevolucao();
-    document.getElementById("nomeUsuario").value=""; document.getElementById("matriculaUsuario").value="";
+    this.mostrarUsuarios(); 
+    this.atualizarSelectUsuarios(); 
+    this.atualizarSelectUsuariosDevolucao();
+    document.getElementById("nomeUsuario").value=""; 
+    document.getElementById("matriculaUsuario").value="";
 }
 
 emprestarLivro(){
     const uI=document.getElementById("usuarioEmprestimo").value;
     const lI=document.getElementById("livroEmprestimo").value;
-        if(uI==""||lI==""){alert("Selecione usuário e livro");return;}
+        if(uI==""||lI==""){
+            alert("Selecione um usuário e o livro");
+            return;
+        }
         const livro=this.livros[lI];
-        if(!livro.disponivel){alert("Livro indisponível");return;}
+            if(!livro.disponivel){
+                alert("Livro indisponível");
+                return;
+            }
         livro.disponivel=false;
         this.usuarios[uI].livrosEmprestados.push(livro.titulo);
         this.mostrarLivros(); 
         this.mostrarUsuarios(); 
         this.atualizarSelectLivros(); 
         this.atualizarSelectLivrosDevolucao(uI);
-    }
+}
 
 devolverLivro(){
     const uI=document.getElementById("usuarioDevolucao").value;
     const livroTitulo=document.getElementById("livroDevolucao").value;
-    if(uI==""||livroTitulo==""){alert("Selecione usuário e livro");return;}
+        if(uI==""||livroTitulo==""){
+            alert("Selecione un usuário e o livro");
+            return;
+        }
     const usuario=this.usuarios[uI];
     const livro=this.livros.find(l=>l.titulo===livroTitulo);
-    if(!livro) return;
+        if(!livro) return;
     livro.disponivel=true;
     usuario.livrosEmprestados=usuario.livrosEmprestados.filter(t=>t!==livroTitulo);
     this.mostrarLivros(); this.mostrarUsuarios(); this.atualizarSelectLivros(); this.atualizarSelectLivrosDevolucao(uI);
@@ -118,3 +153,4 @@ devolverLivro(){
 }
 
 const biblioteca = new Biblioteca();
+
