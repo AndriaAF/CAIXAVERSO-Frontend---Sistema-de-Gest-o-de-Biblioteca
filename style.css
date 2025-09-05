@@ -2,7 +2,8 @@ body {
     background: #1f151b; 
     color: #FFF; 
     font-family: 'Inter', sans-serif; 
-    padding: 20px; margin:0;
+    padding: 20px; 
+    margin:0;
 }
 
 h1 { 
@@ -12,8 +13,9 @@ h1 {
 }
 
 .container { 
-    display: flex; 
-    flex-wrap: wrap; 
+    display: grid; /* flex; flex-wrap: wrap; */
+    grid-template-columns: 
+        repeat(auto-fit, minmax(250px,1fr));
     gap: 20px; 
     margin-bottom: 30px; 
     justify-content: center; 
@@ -25,8 +27,8 @@ h1 {
     background: #241A1C;
     padding: 20px;
     border-radius: 10px;
-    flex: 1 1 250px;
-    max-width: 100%;
+    /* flex: 1 1 250px;
+    max-width: 100%; */
     box-sizing: border-box;
 }
 
@@ -47,8 +49,7 @@ button {
 }
 
 .card { 
-    background: 
-    #181012; 
+    background: #181012; 
     padding: 10px; 
     border-radius: 8px; 
     margin: 5px 0; 
@@ -61,18 +62,39 @@ h2 {
 }
 
 /* Ajuste linha */
-.linha-top { background: #241A1C; }
-.linha-meio { background: #181012; }
-.linha-bottom { background: #241A1C; }
+.linha-top { 
+    background: #241A1C;
+    padding: 15px;
+    border-radius: 10px; 
+}
+.linha-meio { 
+    background: #181012;
+    padding: 15px;
+    border-radius: 10px; 
+}
+.linha-bottom { 
+    background: #241A1C; 
+    padding: 15px;
+    border-radius: 10px; 
+}
 
-/* Ajuste quadro */
-.linha-top .quadro { flex: 1 1 250px; max-width: 300px; }
-.linha-meio .quadro { flex: 1 1 300px; max-width: 400px; }
-.linha-bottom .quadro { flex: 1 1 300px; max-width: none; }
+/* Ajuste responsivo com @media e formatação linhas e quadros
+.linha-top .quadro { 
+    flex: 1 1 250px; 
+    max-width: 300px; 
+}
+.linha-meio .quadro { 
+    flex: 1 1 300px; 
+    max-width: 400px; 
+}
+.linha-bottom .quadro { 
+    flex: 1 1 300px; 
+    max-width: none; 
+}
 
-/* Ajuste responsivo */
 @media (max-width: 900px){
     .linha-top .quadro, .linha-meio .quadro, .linha-bottom .quadro { 
         flex: 1 1 100%; max-width: 100%; 
-    }
+    } */
 }
+
